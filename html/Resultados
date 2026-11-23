@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados | DSM Awards 2026</title>
+    <meta name="description" content="Los ganadores de DSM Awards 2026, publicados cuando termina la votación.">
+    <meta name="theme-color" content="#090909">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23090909'/%3E%3Cpath d='M14 12h22l14 20-14 20H14l14-20z' fill='%23e87524'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+        <a href="../index.html" class="logo" aria-label="DSM Awards, inicio">DSM<span>AWARDS</span></a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="visually-hidden">Abrir menú</span>
+        </button>
+
+        <ul class="nav-links" id="menu-principal">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="categorias.html">Categorías</a></li>
+            <li><a href="../index.html#como-votar">Cómo votar</a></li>
+            <li><a href="resultados.html" aria-current="page">Resultados</a></li>
+            <li><a href="../index.html#comunidad">La comunidad</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="contenido">
+
+    <section class="page-hero">
+        <h1>Resultados</h1>
+        <p>Los ganadores de cada categoría, publicados cuando termina la votación.</p>
+    </section>
+
+    <section class="results-page">
+        <div id="aviso" role="status" aria-live="polite"></div>
+        <div id="resultados" aria-live="polite"><p class="empty-state">Cargando…</p></div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>DSM Awards © 2026 · Comunidad Eclipse y DSM</p>
+</footer>
+
+<script src="../js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/resultados.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

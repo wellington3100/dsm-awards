@@ -1,0 +1,70 @@
+/* DSM AWARDS - Página pública de resultados (solo ganadores, solo si el admin los reveló) */
+(function () {
+    "use strict";
+
+    var DSM = window.DSM;
+    var esc = DSM.esc;
+    var box = document.getElementById("resultados");
+    var notice = document.getElementById("aviso");
+
+    function showNotice(message, type) {
+        notice.innerHTML = message
+            ? '<p class="notice' + (type ? " notice-" + type : "") + '">' + esc(message) + "</p>"
+            : "";
+    }
+
+    async function init() {
+        if (!DSM.configured) {
+            showNotice(DSM.demoMessage);
+            box.innerHTML = '<p class="empty-state">No hay resultados en modo demostración.</p>';
+            return;
+        }
+        try {
+            var settings = await DSM.api.getSettings();
+            if (!settings.results_revealed) {
+                box.innerHTML =
+                    '<div class="locked"><h2>Los resultados todavía son privados</h2>' +
+                    "<p>Se revelarán durante la ceremonia. Aquí aparecerán los ganadores de cada categoría.</p></div>";
+                return;
+            }
+
+            var results = await DSM.api.getPublicResults();
+            var categories = await DSM.api.getCategories();
+            var ids = results.map(function (r) { return r.car_id; });
+            var cars = await DSM.api.getCarsByIds(ids);
+
+            var carById = {};
+            cars.forEach(function (c) { carById[c.id] = c; });
+
+            var html = categories.map(function (cat) {
+                var winners = results.filter(function (r) { return r.category_id === cat.id; });
+                if (!winners.length) { return ""; }
+                var tie = winners.length > 1;
+                return (
+                    '<section class="winner-block' + (cat.is_main ? " winner-main" : "") + '">' +
+                    "<h2>" + esc(cat.name) + "</h2>" +
+                    (tie ? '<p class="winner-tie">Empate</p>' : "") +
+                    '<ul class="winner-list">' +
+                    winners.map(function (w) {
+                        var car = carById[w.car_id];
+                        if (!car) { return ""; }
+                        return (
+                            '<li class="winner-card">' +
+                            '<span class="car-photo"><img src="' + esc(DSM.photoUrl(car.photo_path)) + '" alt="Eclipse de ' + esc(car.owner_name) + '" loading="lazy"></span>' +
+                            '<span class="car-body"><span class="winner-tag">Ganador</span>' +
+                            '<span class="car-owner">' + esc(car.owner_name) + "</span>" +
+                            '<span class="car-gen">' + esc(car.generation) + "</span></span></li>"
+                        );
+                    }).join("") +
+                    "</ul></section>"
+                );
+            }).join("");
+
+            box.innerHTML = html || '<p class="empty-state">Todavía no hay votos registrados.</p>';
+        } catch (e) {
+            showNotice("No se pudieron cargar los resultados. Inténtalo de nuevo más tarde.", "error");
+        }
+    }
+
+    init();
+})();

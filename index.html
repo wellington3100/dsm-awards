@@ -1,107 +1,125 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM Awards 2026 | Premios de la comunidad Eclipse y DSM</title>
+    <meta name="description" content="DSM Awards 2026: la ceremonia que premia a los Mitsubishi Eclipse y DSM de nuestra comunidad. Conoce las categorías y vota por tu favorito.">
+    <meta name="theme-color" content="#090909">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23090909'/%3E%3Cpath d='M14 12h22l14 20-14 20H14l14-20z' fill='%23e87524'/%3E%3C/svg%3E">
 
-    <title>DSM Awards | Automotive Community</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">DSM<span>AWARDS</span></a>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#categorias">Categorías</a></li>
-                <li><a href="#nosotros">El evento</a></li>
-            </ul>
+<header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="logo" aria-label="DSM Awards, inicio">DSM<span>AWARDS</span></a>
 
-            <a href="#categorias" class="nav-button">Ver premios</a>
-        </nav>
-    </header>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="visually-hidden">Abrir menú</span>
+        </button>
 
-    <main>
+        <ul class="nav-links" id="menu-principal">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#premios">Los premios</a></li>
+            <li><a href="#como-votar">Cómo votar</a></li>
+            <li><a href="#comunidad">La comunidad</a></li>
+            <li class="nav-cta-item"><a href="pages/categorias.html" class="nav-button">Ver categorías</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <section class="hero" id="inicio">
-            <div class="hero-content">
+<main id="contenido">
 
-                <p class="eyebrow">THE DSM COMMUNITY PRESENTS</p>
+    <section class="hero" id="inicio">
+        <div class="hero-stripes" aria-hidden="true">
+            <span class="stripe stripe-orange"></span>
+            <span class="stripe stripe-white"></span>
+        </div>
 
-                <h1>DSM<br><span>AWARDS</span></h1>
-
-                <p class="hero-description">
-                    Celebrating the machines, the passion
-                    and the people behind the DSM community.
-                </p>
-
-                <a href="#categorias" class="primary-button">
-                    Explore the awards
-                </a>
-
-            </div>
-        </section>
-
-        <section class="categories" id="categorias">
-
-            <div class="section-heading">
-                <p class="eyebrow">THE NOMINATIONS</p>
-                <h2>Las categorías</h2>
-                <p>Reconociendo lo mejor de nuestra comunidad.</p>
-            </div>
-
-            <div class="category-grid">
-
-                <article class="category-card">
-                    <span>01</span>
-                    <h3>Best Maintained</h3>
-                    <p>El Eclipse mejor cuidado del club.</p>
-                </article>
-
-                <article class="category-card">
-                    <span>02</span>
-                    <h3>Workshop Legend</h3>
-                    <p>El que más tiempo ha pasado en el taller.</p>
-                </article>
-
-                <article class="category-card">
-                    <span>03</span>
-                    <h3>Money Pit</h3>
-                    <p>El proyecto que más inversión ha recibido.</p>
-                </article>
-
-                <article class="category-card">
-                    <span>04</span>
-                    <h3>Best Looking</h3>
-                    <p>El Eclipse con mejor estética.</p>
-                </article>
-
-            </div>
-
-        </section>
-
-        <section class="about" id="nosotros">
-            <p class="eyebrow">MORE THAN JUST CARS</p>
-            <h2>Una comunidad.<br>Una pasión.</h2>
-            <p>
-                Los DSM Awards celebran a los autos y propietarios
-                que hacen especial a nuestra comunidad.
+        <div class="hero-content">
+            <p class="hero-edition">Edición 2026</p>
+            <h1>DSM<br>Awards</h1>
+            <p class="hero-description">
+                La ceremonia que premia a los Eclipse y DSM de nuestra comunidad.
+                Los autos, los talleres y las historias detrás de cada uno.
             </p>
-        </section>
+            <div class="hero-actions">
+                <a href="pages/categorias.html" class="primary-button">Ver categorías</a>
+                <a href="#como-votar" class="ghost-button">Cómo votar</a>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <section class="awards" id="premios">
+        <div class="awards-text">
+            <h2>Once premios para once formas de querer a un Eclipse</h2>
+            <p>
+                Desde el más cuidado hasta el pozo sin fondo, cada auto del club tiene
+                su categoría. Revisa las nominaciones, mira las fotos de todos los
+                participantes y elige a tu favorito.
+            </p>
+            <a href="pages/categorias.html" class="primary-button">Explorar las 11 categorías</a>
+        </div>
 
-    <footer>
-        <p>DSM AWARDS © 2026 | DSM COMMUNITY</p>
-    </footer>
+        <article class="main-award">
+            <svg class="main-award-icon" viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" focusable="false">
+                <path d="M20 8h24v14a12 12 0 0 1-24 0z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M20 12h-8a8 8 0 0 0 8 12M44 12h8a8 8 0 0 1-8 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 34v12M22 56h20M26 46h12v10H26z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+            <h3>Eclipse del año</h3>
+            <p>El premio principal de la ceremonia. Se entrega al final, cuando se revelan todos los resultados.</p>
+        </article>
+    </section>
 
-    <script src="js/main.js"></script>
+    <section class="how" id="como-votar">
+        <div class="section-heading">
+            <h2>Cómo votar</h2>
+            <p>Un voto por categoría, con tu código personal.</p>
+        </div>
 
+        <ol class="steps">
+            <li class="step">
+                <h3>Recibe tu código</h3>
+                <p>Cada miembro del club recibe un código único de invitación. Es personal y solo funciona una vez.</p>
+            </li>
+            <li class="step">
+                <h3>Elige tu favorito</h3>
+                <p>Entra a cada categoría, revisa los autos nominados y selecciona el que más te guste.</p>
+            </li>
+            <li class="step">
+                <h3>Confirma tu voto</h3>
+                <p>Antes de registrarlo te pediremos confirmación. Un voto emitido no se puede cambiar.</p>
+            </li>
+        </ol>
+
+        <p class="how-note">Los resultados son privados. Se revelan en la ceremonia.</p>
+    </section>
+
+    <section class="about" id="comunidad">
+        <h2>Una comunidad.<br>Una pasión.</h2>
+        <p>
+            Los DSM Awards celebran a los autos y a los propietarios
+            que hacen especial a nuestra comunidad.
+        </p>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>DSM Awards © 2026 · Comunidad Eclipse y DSM</p>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
-

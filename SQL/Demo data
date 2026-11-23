@@ -1,0 +1,33 @@
+-- ============================================================
+-- DSM AWARDS 2026 — DATOS DE DEMOSTRACIÓN (opcional)
+-- Todo lo de aquí está marcado como DEMO y NO son autos ni
+-- propietarios reales. Ejecutar DESPUÉS de schema.sql.
+-- ============================================================
+
+insert into public.cars (id, owner_name, generation, description, is_demo) values
+    ('00000000-0000-0000-0000-0000000000a1', 'Propietario demo 1', '1G (1990-1994)',
+     '[DEMO] Auto de demostración. Reemplazar con datos oficiales.', true),
+    ('00000000-0000-0000-0000-0000000000a2', 'Propietario demo 2', '2G (1995-1999)',
+     '[DEMO] Auto de demostración. Reemplazar con datos oficiales.', true),
+    ('00000000-0000-0000-0000-0000000000a3', 'Propietario demo 3', '3G (2000-2005)',
+     '[DEMO] Auto de demostración. Reemplazar con datos oficiales.', true),
+    ('00000000-0000-0000-0000-0000000000a4', 'Propietario demo 4', '2G (1995-1999)',
+     '[DEMO] Auto de demostración. Reemplazar con datos oficiales.', true)
+on conflict (id) do nothing;
+
+-- Nomina los autos demo en las 11 categorías para poder probar la votación.
+insert into public.nominations (category_id, car_id)
+select c.id, d.id
+from public.categories c
+cross join public.cars d
+where d.is_demo
+on conflict do nothing;
+
+-- ------------------------------------------------------------
+-- LIMPIEZA ANTES DEL LANZAMIENTO (ejecutar cuando tengas los datos reales).
+-- Borra TODOS los votos y votantes de prueba y los autos demo.
+-- Quita los comentarios (--) de las 3 líneas y ejecuta:
+-- ------------------------------------------------------------
+-- delete from public.votes;
+-- delete from public.voters;
+-- delete from public.cars where is_demo;
